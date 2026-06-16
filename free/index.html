@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>Free — The 3 Fences · Wall Street Wolfie</title>
+<meta name="description" content="The 3 traps keeping the flock poor. Get the free starter from Wall Street Wolfie." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#0c0e13;--surface:#161a24;--surface2:#1c2130;--line:#262c3a;--line2:#333b4d;
+    --ink:#eef1f6;--muted:#9aa3b4;--faint:#6b7488;--gold:#e7b53c;--gold-soft:#f3d68a;--green:#5bbf7a;}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{overflow-x:hidden}
+  body{background:var(--bg);color:var(--ink);font-family:'Inter',-apple-system,sans-serif;
+    line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden;min-height:100vh;
+    display:flex;flex-direction:column}
+  img{max-width:100%;height:auto}
+  .wrap{max-width:560px;margin:0 auto;padding:0 22px;width:100%}
+  a{color:inherit}
+  /* brand bar */
+  .brandbar{position:sticky;top:0;z-index:40;background:rgba(12,14,19,.82);
+    backdrop-filter:saturate(160%) blur(12px);border-bottom:1px solid var(--line)}
+  .brandbar .wrap{display:flex;align-items:center;gap:11px;padding:13px 22px}
+  .seal{width:30px;height:30px;border-radius:50%;flex:none;
+    background:radial-gradient(circle at 50% 38%,#2a3142,#141823);
+    border:1.5px solid var(--gold);display:grid;place-items:center;font-size:15px}
+  .brandname{font-family:'Fraunces',serif;font-weight:600;font-size:16px}
+  .brandname b{color:var(--gold-soft)}
+  /* hero */
+  main{flex:1;display:flex;align-items:center;padding:40px 0 60px}
+  .card-wrap{text-align:center;position:relative}
+  .card-wrap::before{content:"";position:absolute;inset:-6% -20% 30%;z-index:-1;
+    background:radial-gradient(60% 55% at 50% 25%,rgba(231,181,60,.14),transparent 70%)}
+  .eyebrow{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.22em;
+    text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+  h1{font-family:'Fraunces',serif;font-weight:700;font-size:clamp(34px,9vw,52px);
+    line-height:1.04;letter-spacing:-.01em;margin-bottom:14px}
+  h1 .em{color:var(--gold-soft)}
+  .sub{font-size:17px;color:var(--muted);max-width:24em;margin:0 auto 26px}
+  .sub b{color:var(--ink);font-weight:500}
+  .cover{width:200px;margin:0 auto 30px;display:block;border-radius:8px;
+    box-shadow:0 22px 50px -16px rgba(0,0,0,.75),0 0 0 1px var(--line2);
+    transform:rotate(-2deg);transition:transform .3s ease}
+  .cover:hover{transform:rotate(0)}
+  /* form */
+  form{max-width:400px;margin:0 auto}
+  .field{display:flex;flex-direction:column;gap:12px}
+  input[type=email]{width:100%;padding:17px 18px;border-radius:12px;
+    background:var(--surface);border:1px solid var(--line2);color:var(--ink);
+    font-family:inherit;font-size:16px;text-align:center}
+  input[type=email]::placeholder{color:var(--faint)}
+  input[type=email]:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(231,181,60,.15)}
+  .hp{position:absolute;left:-9999px;opacity:0;height:0;width:0}
+  .btn{width:100%;padding:18px 22px;border:none;border-radius:12px;cursor:pointer;
+    background:linear-gradient(180deg,#f0c24f,#e0a72b);color:#1a1406;font-weight:700;
+    font-size:17px;font-family:inherit;
+    box-shadow:0 10px 30px -8px rgba(231,181,60,.5),inset 0 1px 0 rgba(255,255,255,.4);
+    transition:transform .12s ease,box-shadow .12s ease}
+  .btn:hover{transform:translateY(-2px)}
+  .btn:active{transform:translateY(0)}
+  .btn[disabled]{opacity:.6;cursor:default;transform:none}
+  .err{color:#ff8079;font-size:13px;margin-top:10px;min-height:18px}
+  .fineprint{font-size:12.5px;color:var(--faint);margin-top:16px}
+  .fineprint .ck{color:var(--green)}
+  /* success state */
+  .success{display:none}
+  .success.show{display:block;animation:fade .5s ease}
+  @keyframes fade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+  .success h1{margin-bottom:12px}
+  .dl-btn{display:inline-flex;align-items:center;gap:10px;margin-top:8px;padding:16px 26px;
+    border-radius:12px;background:linear-gradient(180deg,#f0c24f,#e0a72b);color:#1a1406;
+    font-weight:700;font-size:16px;text-decoration:none}
+  /* footer */
+  footer{padding:22px 0;border-top:1px solid var(--line);text-align:center;
+    font-size:12px;color:var(--faint)}
+  footer a{color:var(--muted);text-decoration:none;margin:0 8px}
+</style>
+</head>
+<body>
+
+<div class="brandbar">
+  <div class="wrap"><span class="seal">🐺</span><span class="brandname">Wall Street <b>Wolfie</b></span></div>
+</div>
+
+<main>
+  <div class="wrap">
+
+    <!-- ============ OPT-IN ============ -->
+    <div class="card-wrap" id="optin">
+      <div class="eyebrow">Free Starter</div>
+      <h1>The <span class="em">3 Fences</span></h1>
+      <p class="sub"><b>The 3 traps keeping the flock poor.</b> Read it tonight — it'll change how you look at your paycheck.</p>
+      <img class="cover" src="/img/3fences-cover.webp" alt="The 3 Fences — free guide" />
+      <form id="optinForm" novalidate>
+        <div class="field">
+          <input type="email" id="email" name="email" placeholder="your best email" autocomplete="email" required />
+          <input type="text" class="hp" name="company" tabindex="-1" autocomplete="off" aria-hidden="true" />
+          <button class="btn" type="submit" id="submitBtn">Send me the file 🐺</button>
+        </div>
+        <div class="err" id="err"></div>
+      </form>
+      <p class="fineprint"><span class="ck">✓</span> Instant PDF · no spam · unsubscribe anytime</p>
+    </div>
+
+    <!-- ============ SUCCESS ============ -->
+    <div class="card-wrap success" id="success">
+      <div class="eyebrow">You're in 🐺</div>
+      <h1>Check your <span class="em">inbox.</span></h1>
+      <p class="sub">The 3 Fences is on its way. Can't wait? Grab it right here:</p>
+      <a class="dl-btn" href="/the-3-fences.pdf" target="_blank" rel="noopener">⬇ Download The 3 Fences</a>
+      <p class="fineprint" style="margin-top:24px">Now go watch the rest 🐺 <a href="https://instagram.com/wallstreet.wolfie" style="color:var(--gold-soft)">@wallstreet.wolfie</a></p>
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <a href="/">The Money Matrix</a> · <a href="https://instagram.com/wallstreet.wolfie">@wallstreet.wolfie</a>
+  </div>
+</footer>
+
+<script>
+  // ===== PASTE your Google Apps Script Web App URL here (see deploy steps) =====
+  var COLLECT_ENDPOINT = "PASTE_YOUR_APPS_SCRIPT_URL_HERE";
+
+  var form = document.getElementById('optinForm');
+  var emailInput = document.getElementById('email');
+  var errEl = document.getElementById('err');
+  var btn = document.getElementById('submitBtn');
+  var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  function showSuccess(){
+    document.getElementById('optin').style.display = 'none';
+    document.getElementById('success').classList.add('show');
+    try{ window.scrollTo({top:0,behavior:'smooth'}); }catch(e){}
+  }
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    errEl.textContent = '';
+    var email = emailInput.value.trim();
+    if(!EMAIL_RE.test(email)){ errEl.textContent = 'Please enter a valid email.'; return; }
+    if(form.company.value){ showSuccess(); return; } // honeypot -> silently pass
+
+    btn.disabled = true; btn.textContent = 'Sending…';
+
+    // send to your Google Sheet (no-cors: request goes through, response not read)
+    if(COLLECT_ENDPOINT.indexOf('http') === 0){
+      fetch(COLLECT_ENDPOINT, {
+        method:'POST', mode:'no-cors',
+        headers:{'Content-Type':'application/x-www-form-urlencoded'},
+        body:'email=' + encodeURIComponent(email) + '&source=optin'
+      }).finally(showSuccess);
+    } else {
+      // endpoint not set yet — still deliver the file, log a note
+      console.warn('COLLECT_ENDPOINT not set — email not stored:', email);
+      showSuccess();
+    }
+  });
+</script>
+</body>
+</html>
