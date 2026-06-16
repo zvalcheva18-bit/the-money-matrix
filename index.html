@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>The Wolf Files — The Money Matrix</title>
+<script>document.documentElement.classList.add('js')</script>
+<meta name="description" content="The system isn't broken. It's working as designed — just not for you. The Money Matrix: a 43-page manual on how the machine really works, and how to legally turn it to your side." />
+
+<!-- ============================================================
+     BEFORE LAUNCH — replace the checkout URL in ONE place:
+     find  data-checkout  in the <script> at the bottom.
+     Then link the 3 footer policy pages + confirm the 8 page nos.
+     ============================================================ -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --bg:#0c0e13;
+    --bg2:#10131a;
+    --surface:#161a24;
+    --surface2:#1c2130;
+    --line:#262c3a;
+    --line2:#333b4d;
+    --ink:#eef1f6;
+    --muted:#9aa3b4;
+    --faint:#6b7488;
+    --gold:#e7b53c;
+    --gold-soft:#f3d68a;
+    --red:#e0483c;
+    --green:#5bbf7a;
+    --radius:16px;
+    --maxw:600px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;overflow-x:hidden}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+    width:100%;
+  }
+  img{max-width:100%;height:auto}
+  h1,h2,h3,p,.txt,.value-line,.close-body{overflow-wrap:break-word}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px}
+  section{padding:54px 0;border-top:1px solid var(--line)}
+  section:first-of-type{border-top:none}
+  h1,h2,h3{font-family:'Fraunces',Georgia,serif;font-weight:600;line-height:1.16;letter-spacing:-.01em}
+  h1{font-size:clamp(30px,7.6vw,46px)}
+  h2{font-size:clamp(25px,6.2vw,36px)}
+  p{color:var(--muted)}
+  .eyebrow{
+    font-size:12px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;
+    color:var(--gold);font-family:'JetBrains Mono',monospace;margin-bottom:16px;display:block;
+  }
+  .eyebrow.grey{color:var(--faint)}
+  a{color:inherit}
+
+  /* ---------- buttons ---------- */
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:10px;
+    width:100%;padding:18px 22px;border:none;border-radius:13px;cursor:pointer;
+    background:linear-gradient(180deg,#f0c24f,#e0a72b);
+    color:#1a1406;font-weight:700;font-size:17px;letter-spacing:.01em;
+    text-decoration:none;text-align:center;
+    box-shadow:0 10px 30px -8px rgba(231,181,60,.5), inset 0 1px 0 rgba(255,255,255,.4);
+    transition:transform .12s ease, box-shadow .12s ease;
+  }
+  .btn:hover{transform:translateY(-2px);box-shadow:0 16px 38px -8px rgba(231,181,60,.6)}
+  .btn:active{transform:translateY(0)}
+  .btn .arw{font-size:18px}
+  .sub-btn{display:block;text-align:center;font-size:12.5px;color:var(--faint);margin-top:11px;letter-spacing:.02em}
+
+  /* ---------- brand bar ---------- */
+  .brandbar{
+    position:sticky;top:0;z-index:40;background:rgba(12,14,19,.82);
+    backdrop-filter:saturate(160%) blur(12px);border-bottom:1px solid var(--line);
+  }
+  .brandbar .wrap{display:flex;align-items:center;gap:11px;padding-top:13px;padding-bottom:13px}
+  .seal{
+    width:30px;height:30px;border-radius:50%;flex:none;
+    background:radial-gradient(circle at 50% 38%,#2a3142,#141823);
+    border:1.5px solid var(--gold);display:grid;place-items:center;
+    font-size:15px;box-shadow:0 0 0 3px rgba(231,181,60,.08);
+  }
+  .brandname{font-family:'Fraunces',serif;font-weight:600;font-size:17px;letter-spacing:.01em}
+  .brandname b{color:var(--gold-soft);font-weight:600}
+
+  /* ---------- hero ---------- */
+  .hero{text-align:center;padding-top:40px;position:relative;overflow:hidden}
+  .hero::before{
+    content:"";position:absolute;inset:-10% 0 auto 0;height:520px;z-index:-1;pointer-events:none;
+    background:radial-gradient(70% 60% at 50% 30%,rgba(231,181,60,.13),transparent 72%);
+  }
+  .filelabel{
+    display:inline-block;font-family:'JetBrains Mono',monospace;font-size:12px;
+    letter-spacing:.18em;text-transform:uppercase;color:var(--muted);
+    border:1px solid var(--line2);border-radius:100px;padding:6px 14px;margin-bottom:22px;
+  }
+  .filelabel b{color:var(--gold)}
+  .hero-wolf{width:min(230px,62%);height:auto;margin:6px auto 4px;display:block;
+    filter:drop-shadow(0 24px 30px rgba(0,0,0,.55))}
+  .hero h1{margin-bottom:16px}
+  .hero h1 .em{color:var(--gold-soft)}
+  .subhead{font-size:17px;max-width:30em;margin:0 auto 26px}
+  .subhead b{color:var(--ink);font-weight:500}
+  .hero .btn{max-width:380px;margin:0 auto}
+  .hero .sub-btn{max-width:380px;margin-left:auto;margin-right:auto}
+  .trustrow{
+    display:flex;flex-wrap:wrap;justify-content:center;gap:8px 18px;margin-top:26px;
+    font-size:13px;color:var(--muted)
+  }
+  .trustrow span{display:inline-flex;align-items:center;gap:6px}
+  .trustrow .ck{color:var(--green);font-weight:700}
+
+  /* ---------- ledger / pain ---------- */
+  .ledger{
+    background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+    overflow:hidden;margin-top:22px;
+  }
+  .ledger .row{
+    display:flex;justify-content:space-between;align-items:center;gap:14px;
+    padding:16px 18px;border-bottom:1px solid var(--line);
+    font-size:15px;color:var(--ink)
+  }
+  .ledger .row .desc{color:#c8cedb}
+  .ledger .row:last-child{border-bottom:none}
+  .tag{
+    font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:600;letter-spacing:.06em;
+    text-transform:uppercase;padding:5px 10px;border-radius:6px;flex:none;
+    background:rgba(224,72,60,.12);color:#ff8079;border:1px solid rgba(224,72,60,.3)
+  }
+  .ledger .total{background:var(--surface2);padding:20px 18px}
+  .ledger .total .desc{font-family:'Fraunces',serif;font-size:18px;color:var(--ink);font-weight:600}
+  .ledger .total .tag{background:rgba(231,181,60,.14);color:var(--gold-soft);border-color:rgba(231,181,60,.35)}
+  .intro-line{margin:14px 0 0;font-size:15.5px}
+  .close-line{margin-top:22px;font-size:16px;color:#c8cedb;font-style:italic;
+    border-left:2px solid var(--gold);padding-left:16px}
+
+  /* ---------- contents ---------- */
+  .contents-list{list-style:none;counter-reset:c;margin-top:26px}
+  .contents-list li{
+    counter-increment:c;display:grid;grid-template-columns:30px 1fr auto;gap:14px;
+    align-items:start;padding:18px 0;border-bottom:1px solid var(--line)
+  }
+  .contents-list li::before{
+    content:counter(c,decimal-leading-zero);font-family:'JetBrains Mono',monospace;
+    color:var(--gold);font-size:13px;font-weight:600;padding-top:2px
+  }
+  .contents-list .txt{font-size:15px;color:#d3d8e3;line-height:1.5}
+  .contents-list .txt b{color:#fff;font-weight:600}
+  .pageno{
+    font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--faint);
+    white-space:nowrap;padding-top:3px;border:1px solid var(--line2);border-radius:6px;
+    padding:3px 8px;height:fit-content
+  }
+  .parts-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:26px}
+  .part{
+    flex:1 1 auto;min-width:0;text-align:center;font-size:12px;letter-spacing:.04em;
+    padding:11px 8px;border:1px solid var(--line2);border-radius:9px;color:var(--muted);
+    background:var(--surface)
+  }
+  .part b{display:block;font-family:'JetBrains Mono',monospace;color:var(--gold);
+    font-size:11px;letter-spacing:.12em;margin-bottom:3px}
+
+  /* ---------- flock vs wolf ---------- */
+  .duo{display:grid;gap:16px;margin-top:24px}
+  .card{
+    background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+    padding:24px 22px;position:relative;cursor:default;
+    transition:transform .3s cubic-bezier(.2,.7,.2,1), box-shadow .3s ease, border-color .3s ease, background .3s ease;
+  }
+  .card .ctitle{font-family:'Fraunces',serif;font-size:21px;font-weight:600;margin-bottom:10px}
+  .card p{font-size:15px;line-height:1.55}
+  .card.flock{opacity:.92}
+  .card.flock .ctitle{color:var(--muted)}
+  .card.wolf{
+    border-color:rgba(231,181,60,.45);
+    background:linear-gradient(180deg,#1b2030,#141824);
+    box-shadow:0 18px 50px -22px rgba(231,181,60,.4)
+  }
+  .card.wolf::before{
+    content:"";position:absolute;inset:0;border-radius:var(--radius);padding:1px;
+    background:linear-gradient(160deg,rgba(231,181,60,.6),transparent 55%);
+    -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+    -webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none
+  }
+  .card.wolf .ctitle{color:var(--gold-soft)}
+  .card.wolf p{color:#cfd5e2}
+  .card-wolf-img{position:absolute;top:-46px;right:14px;width:96px;height:auto;
+    filter:drop-shadow(0 12px 16px rgba(0,0,0,.5));
+    transition:transform .35s cubic-bezier(.34,1.56,.64,1), filter .3s ease;
+    transform-origin:bottom center}
+
+  /* ---- Flock card: lights up COOL/grey on hover ---- */
+  .card.flock:hover{
+    opacity:1;transform:translateY(-5px);
+    border-color:#4a5572;background:#1a2030;
+    box-shadow:0 22px 55px -24px rgba(120,140,185,.55)
+  }
+  .card.flock .ctitle{transition:color .3s ease}
+  .card.flock:hover .ctitle{color:#cfd6e6}
+
+  /* ---- Wolf card: lights up GOLD + mascot leaps in ---- */
+  .card.wolf{transition:transform .3s cubic-bezier(.2,.7,.2,1), box-shadow .3s ease, border-color .3s ease, background .3s ease}
+  .card.wolf:hover{
+    transform:translateY(-6px);
+    border-color:rgba(231,181,60,.85);
+    box-shadow:0 30px 70px -22px rgba(231,181,60,.6)
+  }
+  .card.wolf:hover .card-wolf-img{
+    transform:scale(1.16) rotate(-4deg) translateY(-4px);
+    filter:drop-shadow(0 18px 22px rgba(0,0,0,.55)) drop-shadow(0 0 18px rgba(231,181,60,.45))
+  }
+  .duo-foot{text-align:center;margin-top:24px;font-family:'Fraunces',serif;
+    font-size:18px;color:var(--ink);font-style:italic}
+
+  /* ---------- offer ---------- */
+  .offer-card{
+    background:linear-gradient(180deg,#141824,#0f1219);
+    border:1px solid var(--line2);border-radius:22px;
+    padding:0 0 26px;margin-top:24px;overflow:hidden;position:relative;
+    box-shadow:0 30px 70px -30px rgba(0,0,0,.8)
+  }
+  .offer-head{
+    display:flex;align-items:center;gap:16px;padding:22px 24px;
+    border-bottom:1px solid var(--line);background:rgba(231,181,60,.05)
+  }
+  .offer-head img{width:74px;height:auto;flex:none;margin-top:-6px;margin-bottom:-22px;
+    filter:drop-shadow(0 8px 12px rgba(0,0,0,.5))}
+  .offer-head .h-t{font-family:'Fraunces',serif;font-size:18px;font-weight:600}
+  .offer-head .h-s{font-size:12.5px;color:var(--faint);font-family:'JetBrains Mono',monospace;letter-spacing:.06em}
+  .offer-body{padding:24px}
+  .price-line{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:6px}
+  .price{font-family:'Fraunces',serif;font-size:54px;font-weight:700;color:#fff;line-height:1}
+  .anchor{font-size:22px;color:var(--faint);text-decoration:line-through;font-family:'Fraunces',serif}
+  .once{font-size:12px;color:var(--muted);font-family:'JetBrains Mono',monospace;
+    border:1px solid var(--line2);border-radius:100px;padding:4px 11px}
+  .value-line{font-size:14.5px;color:var(--muted);margin:14px 0 22px}
+  .value-line b{color:#d7dce6;font-weight:500}
+  .gbox{
+    border:1px solid rgba(91,191,122,.3);background:rgba(91,191,122,.07);
+    border-radius:12px;padding:16px 18px;margin-bottom:18px;font-size:14.5px;color:#cdd9cf
+  }
+  .gbox b{color:#9fe3b4;font-weight:600;display:block;margin-bottom:4px;
+    font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase}
+  .qual{display:grid;gap:12px;margin-bottom:22px}
+  @media(min-width:480px){.qual{grid-template-columns:1fr 1fr}}
+  .qbox{border:1px solid var(--line);border-radius:12px;padding:15px 16px;background:var(--surface);font-size:13.5px;color:var(--muted)}
+  .qbox .lab{font-weight:700;font-size:12px;letter-spacing:.04em;margin-bottom:6px;display:block}
+  .qbox.yes .lab{color:var(--green)}
+  .qbox.no .lab{color:#ff8079}
+  .qbox b{color:#d7dce6;font-weight:500}
+
+  /* ---------- faq ---------- */
+  .faq{margin-top:26px;border-top:1px solid var(--line)}
+  .faq details{border-bottom:1px solid var(--line)}
+  .faq summary{
+    list-style:none;cursor:pointer;padding:16px 2px;font-size:15px;font-weight:600;color:var(--ink);
+    display:flex;justify-content:space-between;align-items:center;gap:12px
+  }
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary .pm{color:var(--gold);font-size:20px;font-weight:400;transition:transform .2s;flex:none}
+  .faq details[open] summary .pm{transform:rotate(45deg)}
+  .faq .ans{padding:0 2px 18px;font-size:14.5px;color:var(--muted)}
+
+  /* ---------- close ---------- */
+  .close{text-align:center}
+  .close .btn{max-width:380px;margin:24px auto 0}
+  .close-body{max-width:32em;margin:14px auto 0;font-size:16px}
+  .close-final{margin-top:18px;font-family:'Fraunces',serif;font-style:italic;
+    font-size:19px;color:var(--gold-soft)}
+
+  /* ---------- footer ---------- */
+  footer{padding:40px 0 120px;border-top:1px solid var(--line);text-align:center}
+  .flinks{display:flex;justify-content:center;gap:22px;margin-bottom:20px;font-size:13px}
+  .flinks a{color:var(--muted);text-decoration:none;display:inline-block;padding:10px 8px}
+  .flinks a:hover{color:var(--ink)}
+  .disclaimer{font-size:11.5px;color:var(--faint);max-width:44em;margin:0 auto;line-height:1.6}
+  .fbrand{font-family:'Fraunces',serif;color:var(--faint);font-size:13px;margin-bottom:18px;letter-spacing:.04em}
+
+  /* ---------- interactive hover states ---------- */
+  /* ledger rows light red on hover; total lights gold */
+  .ledger .row{transition:background .25s ease, padding-left .25s ease}
+  .ledger .row:hover{background:rgba(224,72,60,.08);padding-left:24px}
+  .ledger .row:hover .tag{background:rgba(224,72,60,.2);color:#ff948c}
+  .ledger .total:hover{background:rgba(231,181,60,.1)}
+  .ledger .total:hover .tag{background:rgba(231,181,60,.22)}
+
+  /* contents rows: gold accent bar slides in, chip + text light up */
+  .contents-list li{position:relative;transition:background .25s ease}
+  .contents-list li::after{
+    content:"";position:absolute;left:-20px;top:0;bottom:0;width:3px;border-radius:3px;
+    background:var(--gold);transform:scaleY(0);transform-origin:center;transition:transform .25s ease
+  }
+  .contents-list li:hover::after{transform:scaleY(.7)}
+  .contents-list li:hover{background:rgba(231,181,60,.04)}
+  .contents-list .txt,.pageno{transition:color .25s ease, border-color .25s ease}
+  .contents-list li:hover .txt{color:#fff}
+  .contents-list li:hover .pageno{border-color:var(--gold);color:var(--gold-soft)}
+
+  /* part tabs lift + gold edge on hover */
+  .part{transition:transform .25s cubic-bezier(.2,.7,.2,1), border-color .25s ease, color .25s ease, background .25s ease;cursor:default}
+  .part:hover{transform:translateY(-4px);border-color:rgba(231,181,60,.7);color:var(--ink);background:#1b2030}
+
+  /* qualifier boxes react */
+  .qbox{transition:transform .25s ease, border-color .25s ease, background .25s ease}
+  .qbox.yes:hover{transform:translateY(-3px);border-color:rgba(91,191,122,.5);background:rgba(91,191,122,.06)}
+  .qbox.no:hover{transform:translateY(-3px);border-color:rgba(224,72,60,.45);background:rgba(224,72,60,.05)}
+
+  /* offer card subtle lift */
+  .offer-card{transition:box-shadow .35s ease, transform .35s ease}
+  .offer-card:hover{transform:translateY(-3px);box-shadow:0 40px 90px -34px rgba(0,0,0,.9),0 0 0 1px rgba(231,181,60,.15)}
+
+  /* faq question highlights gold on hover/open */
+  .faq summary{transition:color .2s ease}
+  .faq summary:hover{color:var(--gold-soft)}
+  .faq details[open] summary{color:var(--gold-soft)}
+
+  /* button shimmer sweep */
+  .btn{position:relative;overflow:hidden}
+  .btn::after{
+    content:"";position:absolute;top:0;left:-120%;width:60%;height:100%;
+    background:linear-gradient(100deg,transparent,rgba(255,255,255,.55),transparent);
+    transform:skewX(-18deg);transition:left .6s ease
+  }
+  .btn:hover::after{left:140%}
+
+  /* hero mascot idle float + spotlight breathe */
+  @keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+  @keyframes breathe{0%,100%{opacity:.85}50%{opacity:1}}
+  .hero-wolf{animation:floaty 5.5s ease-in-out infinite}
+  .hero::before{animation:breathe 6s ease-in-out infinite}
+
+  /* file label + seal micro-interactions */
+  .filelabel{transition:border-color .25s ease, color .25s ease}
+  .filelabel:hover{border-color:var(--gold);color:var(--ink)}
+  .seal{transition:transform .3s cubic-bezier(.34,1.56,.64,1), box-shadow .3s ease}
+  .brandbar:hover .seal{transform:rotate(-8deg) scale(1.08);box-shadow:0 0 0 4px rgba(231,181,60,.14)}
+
+  /* ---------- scroll reveal (entrance) — hidden from first paint, no flash ---------- */
+  .js section .eyebrow,
+  .js section h2,
+  .js .intro-line,
+  .js .ledger,
+  .js .close-line,
+  .js .contents-list li,
+  .js .parts-row,
+  .js .card,
+  .js .duo-foot,
+  .js .offer-card,
+  .js .close-body,
+  .js .close-final,
+  .js section.close .btn{
+    opacity:0;transform:translateY(26px);
+    transition:opacity .7s ease, transform .7s cubic-bezier(.2,.7,.2,1)
+  }
+  .js .in{opacity:1 !important;transform:none !important}
+
+  @media (prefers-reduced-motion:reduce){
+    *{animation:none!important}
+    .js .reveal{opacity:1;transform:none;transition:none}
+    .btn::after{display:none}
+  }
+
+  /* ---------- sticky mobile cta ---------- */
+  .sticky{
+    position:fixed;left:0;right:0;bottom:0;z-index:50;
+    padding:12px 16px calc(12px + env(safe-area-inset-bottom));
+    background:linear-gradient(180deg,rgba(12,14,19,0),rgba(12,14,19,.92) 32%);
+    backdrop-filter:blur(6px);transform:translateY(120%);transition:transform .3s ease;
+    pointer-events:none
+  }
+  .sticky.show{transform:translateY(0);pointer-events:auto}
+  .sticky .btn{max-width:var(--maxw);margin:0 auto;padding:16px}
+  @media(min-width:760px){.sticky{display:none}}
+</style>
+</head>
+<body>
+
+<!-- ============ BRAND BAR ============ -->
+<div class="brandbar">
+  <div class="wrap">
+    <span class="seal">🐺</span>
+    <span class="brandname">The <b>Wolf Files</b></span>
+  </div>
+</div>
+
+<!-- ============ 1 · HERO ============ -->
+<header class="hero">
+  <div class="wrap">
+    <span class="filelabel">Money Matrix · <b>File 1913</b></span>
+    <img class="hero-wolf" src="img/wolf-money-cut.png" alt="The Wolf — mascot holding cash and a gold coin" />
+    <h1>The system isn't broken.<br><span class="em">It's working as designed.</span></h1>
+    <p class="subhead"><b>Just not for you.</b> This is the manual that shows exactly how it works — and how to legally turn it to your side.</p>
+    <a class="btn cta" href="#"><span>Get the Wolf Files — $19.99</span><span class="arw">→</span></a>
+    <span class="sub-btn">Instant PDF · one-time payment · any device</span>
+    <div class="trustrow">
+      <span><span class="ck">✓</span> 43 pages, no filler</span>
+      <span><span class="ck">✓</span> One evening's read</span>
+      <span><span class="ck">✓</span> Refund if it doesn't land</span>
+    </div>
+  </div>
+</header>
+
+<!-- ============ 2 · THE PAIN ============ -->
+<section>
+  <div class="wrap">
+    <span class="eyebrow grey">Statement of account</span>
+    <h2>Every month you don't understand this, you pay for it.</h2>
+    <p class="intro-line">Not metaphorically. Your account, as the system keeps it:</p>
+    <div class="ledger">
+      <div class="row"><span class="desc">Interest on money created from nothing the second you signed</span><span class="tag">Debit</span></div>
+      <div class="row"><span class="desc">Salary — taxed before you touch it, devalued while it sits</span><span class="tag">Debit</span></div>
+      <div class="row"><span class="desc">Savings — transferred to those closer to the printer</span><span class="tag">Debit</span></div>
+      <div class="row total"><span class="desc">Charged every month, in</span><span class="tag">Your time</span></div>
+    </div>
+    <p class="close-line">You don't feel it because it's designed not to be felt. Comfort is the cage.</p>
+  </div>
+</section>
+
+<!-- ============ 3 · THE CONTENTS ============ -->
+<section>
+  <div class="wrap">
+    <span class="eyebrow">Contents of the file</span>
+    <h2>What you'll understand by the last page</h2>
+    <ol class="contents-list">
+      <li><span class="txt">Why banks don't lend deposits — they <b>create new money with a keystroke</b>. The Bank of England admitted it in writing; we show you where.</span><span class="pageno">p.16</span></li>
+      <li><span class="txt">The mathematical reason there's <b>never enough money</b> to repay all debt + interest — and who benefits.</span><span class="pageno">p.20</span></li>
+      <li><span class="txt">The 7 men, the private train, the island — <b>designed in 1910, signed in 1913</b> while Congress left for Christmas.</span><span class="pageno">p.10</span></li>
+      <li><span class="txt">Why inflation isn't "rising prices" — it's a <b>wealth transfer with a direction</b>, and which end you're on.</span><span class="pageno">p.23</span></li>
+      <li><span class="txt">The <b>183-day rule</b> the wealthy use to legally choose where they pay taxes — real countries at 10%, 4%, 0%.</span><span class="pageno">p.37</span></li>
+      <li><span class="txt">Why <b>employee is the most exposed legal position</b> there is — and how companies, trusts, and foundations shield instead.</span><span class="pageno">p.41</span></li>
+      <li><span class="txt">The <b>three assets no central bank can print</b> — and how the rich buy them with the bank's own money.</span><span class="pageno">p.44</span></li>
+      <li><span class="txt">Your <b>first 90 days</b> — exactly what to calculate, research, and do first.</span><span class="pageno">p.48</span></li>
+    </ol>
+    <div class="parts-row">
+      <div class="part"><b>Part I</b>The Lie</div>
+      <div class="part"><b>Part II</b>The Engine</div>
+      <div class="part"><b>Part III</b>The Global Cage</div>
+      <div class="part"><b>Part IV</b>The Escape</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 4 · FLOCK vs WOLF ============ -->
+<section>
+  <div class="wrap">
+    <span class="eyebrow grey">Two readers</span>
+    <h2>Two kinds of people reach this page.</h2>
+    <div class="duo">
+      <div class="card flock">
+        <div class="ctitle">The Flock</div>
+        <p>Scrolls past. Feels slightly uncomfortable. Returns to entertainment. The system counts on it — the flock guards its own cage.</p>
+      </div>
+      <div class="card wolf">
+        <img class="card-wolf-img" src="img/wolf-smirk-cut.png" alt="The Wolf" />
+        <div class="ctitle">The Wolf</div>
+        <p>Feels the same discomfort — and reads anyway. That instinct can't be taught. But it can be armed.</p>
+      </div>
+    </div>
+    <p class="duo-foot">You're still reading. That answers the question.</p>
+  </div>
+</section>
+
+<!-- ============ 5 · THE OFFER ============ -->
+<section>
+  <div class="wrap">
+    <span class="eyebrow">Acquire the file</span>
+    <div class="offer-card">
+      <div class="offer-head">
+        <img src="img/wolf-talking-cut.png" alt="The Wolf" />
+        <div>
+          <div class="h-t">The Wolf Files</div>
+          <div class="h-s">PDF · 43 pp.</div>
+        </div>
+      </div>
+      <div class="offer-body">
+        <div class="price-line">
+          <span class="price">$19.99</span>
+          <span class="anchor">$67.97</span>
+          <span class="once">One-time</span>
+        </div>
+        <p class="value-line">Less than the interest you'll pay the bank this week. <b>The system takes thousands from you every year without asking</b> — the manual that explains how costs less than a pizza, once.</p>
+
+        <div class="gbox">
+          <b>Read it risk-free</b>
+          If it doesn't change how you see money, ask for a refund. You risk twenty dollars; the system risks losing a customer for life.
+        </div>
+
+        <div class="qual">
+          <div class="qbox yes">
+            <span class="lab">For you if</span>
+            You want to <b>understand the machine you work inside</b> — plain language, real mechanics, the playbook the wealthy already use.
+          </div>
+          <div class="qbox no">
+            <span class="lab">Not for you if</span>
+            You want a get-rich-quick promise. There's none here — only <b>how the system works</b> and how to position yourself.
+          </div>
+        </div>
+
+        <a class="btn cta" href="#"><span>Get the Wolf Files — $19.99</span><span class="arw">→</span></a>
+        <span class="sub-btn">Secure payment with Whop · instant access</span>
+
+        <div class="faq">
+          <details>
+            <summary>Is it a course? <span class="pm">+</span></summary>
+            <div class="ans">No — a 43-page document. Read it in one evening, use it for years.</div>
+          </details>
+          <details>
+            <summary>Do I need money to apply it? <span class="pm">+</span></summary>
+            <div class="ans">No. Part IV starts with moves that cost nothing: knowing your numbers, your exposure, your options.</div>
+          </details>
+          <details>
+            <summary>What format is it? <span class="pm">+</span></summary>
+            <div class="ans">PDF — instant download, read on any device.</div>
+          </details>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 6 · THE CLOSE ============ -->
+<section class="close">
+  <div class="wrap">
+    <span class="eyebrow grey">In closing</span>
+    <h2>If you close this page, nothing happens.</h2>
+    <p class="close-body">The paycheck arrives. The deductions are taken. The prices rise. Everything keeps working exactly as designed — that's the problem.</p>
+    <p class="close-final">Not deciding is also a decision. In their favor.</p>
+    <a class="btn cta" href="#"><span>Get the Wolf Files — $19.99</span><span class="arw">→</span></a>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="fbrand">The Wolf Files</div>
+    <div class="flinks">
+      <a href="#" data-policy="terms">Terms</a>
+      <a href="#" data-policy="privacy">Privacy</a>
+      <a href="#" data-policy="refunds">Refunds</a>
+    </div>
+    <p class="disclaimer">The Money Matrix is an educational and informational product about the historical and structural workings of the financial system. It does not constitute financial, tax, legal, or investment advice. Any decisions you make are your own responsibility and individual results may vary.</p>
+  </div>
+</footer>
+
+<!-- ============ STICKY MOBILE CTA ============ -->
+<div class="sticky" id="sticky">
+  <a class="btn cta" href="#"><span>Get the Wolf Files — $19.99</span><span class="arw">→</span></a>
+</div>
+
+<script>
+  // ===== ONE place to set the checkout link before launch =====
+  var CHECKOUT_URL = "https://whop.com/REPLACE_WITH_YOUR_CHECKOUT"; // <-- paste real Whop URL here
+  document.querySelectorAll('a.cta').forEach(function(a){ a.href = CHECKOUT_URL; });
+
+  // ===== sticky bar appears after the hero scrolls away =====
+  var sticky = document.getElementById('sticky');
+  var hero = document.querySelector('.hero');
+  var io = new IntersectionObserver(function(e){
+    sticky.classList.toggle('show', !e[0].isIntersecting);
+  }, {threshold:0});
+  io.observe(hero);
+
+  // ===== scroll-reveal entrances =====
+  var revealSel = "section .eyebrow, section h2, .intro-line, .ledger, .close-line, "
+    + ".contents-list li, .parts-row, .card, .duo-foot, .offer-card, "
+    + ".close-body, .close-final, section.close .btn";
+  var targets = Array.prototype.slice.call(document.querySelectorAll(revealSel));
+  // stagger items that sit in a group (contents list)
+  document.querySelectorAll('.contents-list li').forEach(function(li,i){
+    li.style.transitionDelay = (i*70) + 'ms';
+  });
+  var rio = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if(en.isIntersecting){ en.target.classList.add('in'); rio.unobserve(en.target); }
+    });
+  }, {threshold:0.12, rootMargin:'0px 0px -8% 0px'});
+  targets.forEach(function(el){ rio.observe(el); });
+</script>
+</body>
+</html>
